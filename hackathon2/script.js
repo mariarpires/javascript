@@ -13,6 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const addTask = document.getElementById('add-task');
     const taskList = document.getElementById('task-list');
     const taskFilter = document.getElementById('task-filter');
+
+    function clicar () {
+        window.location.href="index.html"
+
+    }
+    let userData = {
+        name: '',
+        email: '',
+        password: '',
+        profileType: 'general',
+        profileSetup: false
+      };
     
     // Current profile (general, student, athlete)
     let currentProfile = 'general';

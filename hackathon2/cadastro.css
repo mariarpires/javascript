@@ -1,0 +1,255 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --border-radius: 5px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #c7c0c0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Estilos para a tela de cadastro */
+.registration-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.registration-container h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.registration-container p {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.registration-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.registration-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+#complete-registration {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#complete-registration:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Estilos para a tela de seleção de perfil */
+.profile-select-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.profile-select-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.profile-select-container p {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+.profile-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile-option {
+    flex: 1;
+    min-width: 200px;
+    padding: 25px 20px;
+    border: 2px solid #eee;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.profile-option:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.profile-option i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.profile-option h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.profile-option p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Estilos para o aplicativo principal */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+#profile-subtitle {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+nav {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+nav i {
+    margin-right: 8px;
+}
+
+.main-content {
+    padding: 30px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .profile-options {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .registration-container, .profile-select-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}

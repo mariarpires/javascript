@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="meuCanvas" width="600" height="400" style="border: 5px solid rgb(253, 248, 250);"></canvas>
+
+    <script>
+        const canvas = document.getElementById("meuCanvas")
+        const ctx = canvas.getContext("2d")
+        ctx.fillStyle = "red"
+
+        ctx.fillStyle = "green"
+        ctx.fillRect(80, 80, 80, 80)
+
+        ctx.beginPath()
+        ctx.arc(200, 100, 30, 0, 2 * Math.PI)
+        ctx.fillStyle = "red"
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(100, 250, 60, 0, 2 * Math.PI)
+        ctx.fillStyle = "yellow"
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.arc(80, 230, 8, 0, 2 * Math.PI)
+        ctx.fillStyle = "black"
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(120, 230, 8, 0, 2 * Math.PI)
+        ctx.fillStyle = "black"
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(100, 260, 30, 0, Math.PI, false)
+        ctx.stroke()
+
+        ctx.fillStyle = "rgb(136, 100, 100)"
+        ctx.fillRect(200, 200, 120, 100)
+
+        ctx.beginPath()
+        ctx.moveTo(200, 200)
+        ctx.lineTo(260, 150)
+        ctx.lineTo(320, 200)
+        ctx.closePath()
+        ctx.fillStyle = "rgb(235, 149, 149)"
+        ctx.fill()
+
+       
+        ctx.fillStyle = "rgb(235, 149, 149)"
+        ctx.fillRect(245, 250, 30, 50)
+
+        
+        ctx.fillStyle = "rgb(253, 248, 250)"
+        ctx.fillRect(380, 80, 160, 100)
+
+        ctx.beginPath()
+        ctx.arc(460, 130, 30, 0, 2 * Math.PI)
+        ctx.fillStyle = "red"
+        ctx.fill()
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+h1 {
+  font-size: 20px; 
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 2rem;
+}
+p {
+  font-size: 18px;
+}
+
+
+.fimg {
+  width: 300px;
+}
+
+.rimg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.perfil {
+  text-align: center;
+  margin: 20px;
+}
+
+.perfil-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.perfil-nome {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.perfil-desc {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    background-color: #f0f0f0; 
+  }
+  .perfil-nome {
+    font-size: 1.5rem;
+    color: #222;
+  }
+}
+
+.secoes {
+  display: flex;
+  text-align: center;
+  margin: 20px;
+}
+
+.secao {
+  flex: 1;
+  padding: 20px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  .secoes {
+    flex-direction: column;
+  }
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-color: rgb(159, 205, 245); 
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    background-color: rgb(206, 255, 251); 
+  }
+}

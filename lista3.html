@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interatividade com Imagens</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .galeria img {
+    width: 80px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #imgGrande {
+    width: 300px;
+    display: block;
+    margin-top: 10px;
+  }
+  button {
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 1 -->
+  <section>
+    <h2>1. Troca de Banner</h2>
+    <img id="banner" src="banner1.jpg" alt="Banner">
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2>2. Troca de Imagem (Lâmpada)</h2>
+    <img id="lampada" src="apagada.jpeg" alt="Lâmpada" width="150">
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2>3. Mostrar / Esconder Imagem</h2>
+    <button id="btnToggle">Mostrar/Esconder</button><br><br>
+    <img id="imgToggle" src="foto1.png" alt="Imagem" style="display:none;" width="200">
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <h2>4. Trocar Foto de Perfil</h2>
+    <img id="perfil" src="foto5.png" alt="Perfil" width="150"><br><br>
+    <button id="trocarPerfil">Trocar Foto</button>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <h2>5. Galeria de Miniaturas</h2>
+    <div class="galeria">
+      <img src="foto1.png" alt="Mini 1" onclick="mostrarGrande('foto1.png')">
+      <img src="foto2.png" alt="Mini 2" onclick="mostrarGrande('foto2.png')">
+      <img src="foto3.png" alt="Mini 3" onclick="mostrarGrande('foto3.png')">
+    </div>
+    <img id="imgGrande" src="foto1.jpg" alt="Grande">
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <h2>6. Banner Responsivo</h2>
+    <img id="banner3" src="banner1.jpg" alt="Banner Responsivo">
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <h2>7. Carrossel de Imagens</h2>
+    <img id="carrossel" src="foto1.jpg" alt="Carrossel" width="250"><br><br>
+    <button id="anterior">Anterior</button>
+    <button id="proximo">Próxima</button>
+  </section>
+
+<script>
+  // 1
+  function trocarBanner() {
+    const largura = window.innerWidth;
+    const banner = document.getElementById("banner");
+    banner.src = largura < 600 ? "banner1.jpg" : "banner2.jpg";
+  }
+  window.addEventListener("resize", trocarBanner);
+  trocarBanner();
+
+  // 2
+  const lampada = document.getElementById("lampada");
+  let acesa = false;
+  lampada.addEventListener("click", () => {
+    acesa = !acesa;
+    lampada.src = acesa ? "acesa.jpeg" : "apagada.jpeg";
+  });
+
+  // 3
+  const btnToggle = document.getElementById("btnToggle");
+  const imgToggle = document.getElementById("imgToggle");
+  btnToggle.addEventListener("click", () => {
+    imgToggle.style.display = imgToggle.style.display === "none" ? "block" : "none";
+  });
+
+  // 4 
+  const perfil = document.getElementById("perfil");
+  const trocarPerfil = document.getElementById("trocarPerfil");
+  let trocado = false;
+  trocarPerfil.addEventListener("click", () => {
+    trocado = !trocado;
+    perfil.src = trocado ? "foto6.png" : "foto5.png";
+  });
+
+  // 5 
+  function mostrarGrande(src) {
+    document.getElementById("imgGrande").src = src;
+  }
+
+  // 6 
+  function trocarBanner3() {
+    const largura = window.innerWidth;
+    const banner3 = document.getElementById("banner3");
+    if (largura < 600) {
+      banner3.src = "banner1.jpg";
+    } else if (largura < 1024) {
+      banner3.src = "banner2.jpg";
+    } else {
+      banner3.src = "banner1.jpg";
+    }
+  }
+  window.addEventListener("resize", trocarBanner3);
+  trocarBanner3();
+
+  // 7 
+  const imagens = ["foto1.png", "foto2.png", "foto3.png"];
+  let indice = 0;
+  const carrossel = document.getElementById("carrossel");
+
+  document.getElementById("proximo").addEventListener("click", () => {
+    indice = (indice + 1) % imagens.length;
+    carrossel.src = imagens[indice];
+  });
+
+  document.getElementById("anterior").addEventListener("click", () => {
+    indice = (indice - 1 + imagens.length) % imagens.length;
+    carrossel.src = imagens[indice];
+  });
+</script>
+</body>
+</html>
